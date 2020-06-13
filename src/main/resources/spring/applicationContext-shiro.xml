@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 1、web.xml中shiro的filter对应的bean :Shiro 的Web过滤器 -->
+    <!--	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">-->
+    <bean id="shiroFilter" class="com.shiro.test.mvc.filter.MyShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/gologin.html"></property>
+        <property name="successUrl" value="/index.html"></property>
+        <property name="unauthorizedUrl" value="/error.html"></property>
+        <property name="filterChainDefinitions">
+            <value>
+                /login.html/** = anon
+                /pages/** = anon
+                /easyui/** = anon
+                /jquery-easyui-1.7.0/** = anon
+                /js/** = anon
+                /images/** = anon
+                /css/** = anon
+                /static/** =anon
+                /user.html/**=anon
+            </value>
+        </property>
+    </bean>
+
+    <!--2、securityManager安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="customRealm"/>
+        <!-- 注入缓存管理器 -->
+        <!--<property name="cacheManager" ref="cacheManager" />-->
+        <!-- 注入session管理器 -->
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+    <!-- 3、realm -->
+    <bean id="customRealm" class="com.shiro.test.mvc.filter.MyShiroRealm">
+        <!-- 将凭证匹配器设置到realm中，realm按照凭证匹配器的要求进行散列 -->
+        <property name="credentialsMatcher" ref="credentialsMatcher" />
+    </bean>
+
+    <!--<bean id="myShiroFilterFactoryBean" class="com.shiro.test.mvc.filter.MyShiroFilterFactoryBean"></bean>-->
+    <!-- 4、凭证匹配器 -->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="2"/><!-- 配置加密次数 -->
+    </bean>
+    <!-- 5、缓存管理器 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml"/>
+    </bean>
+    <!-- 6、Session会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- session的失效时长，单位毫秒 -->
+        <property name="globalSessionTimeout" value="600000"/>
+        <!-- 删除失效的session -->
+        <property name="deleteInvalidSessions" value="true"/>
+    </bean>
+</beans>

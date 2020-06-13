@@ -1,0 +1,38 @@
+
+
+.micons-search{ background:url('micons/search.png') no-repeat center center;}/*搜索*/
+.micons-empty{ background:url('micons/empty.png') no-repeat center center;}/*清空*/
+
+.micons-GoodsShelvesInformation{ background:url('micons/GoodsShelvesInformation.png') no-repeat center center;}
+
+.micons-ShelfPositionInformation{ background:url('micons/ShelfPositionInformation.png') no-repeat center center;}
+
+.micons-Reportform{ background:url('micons/Reportform.png') no-repeat center center;}
+
+.micons-orders{ background:url('micons/orders.png') no-repeat center center;}
+
+.micons-OutOfStock-order-no{ background:url('micons/OutOfStock-order-no.png') no-repeat center center;}
+
+.micons-OutOfStock-order-ok{ background:url('micons/OutOfStock-order-ok.png') no-repeat center center;}
+
+.micons-Warehousing-order-ok{ background:url('micons/Warehousing-order-ok.png') no-repeat center center;}
+
+.micons-Warehousing-order-no{ background:url('micons/Warehousing-order-no.png') no-repeat center center;}
+
+.micons-warehouse{ background:url('micons/icons_warehouse.png') no-repeat center center;}
+
+.micons-Commodity-Adjustment-Roll-Out{ background:url('micons/Commodity-Adjustment-Roll-Out.png') no-repeat center center;}
+
+.micons-Input-warehouse-query{ background:url('micons/Input-warehouse-query.png') no-repeat center center;}
+
+.micons-Commodity-Adjustment-Receive{ background:url('micons/Commodity-Adjustment-Receive.png') no-repeat center center;}
+
+.micons-warehouse-query{ background:url('micons/warehouse-query.png') no-repeat center center;}
+
+.micons-warehouse-inventory-query{ background:url('micons/warehouse-inventory-query.png') no-repeat center center;}
+
+.micons-approval-settings{ background:url('micons/approval-settings.png') no-repeat center center;}
+
+.micons-approval-warehousing{ background:url('micons/approval-warehousing.png') no-repeat center center;}
+
+.micons-approval-outofstock{ background:url('micons/approval-outofstock.png') no-repeat center center;}
