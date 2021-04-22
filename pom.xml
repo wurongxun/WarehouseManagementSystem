@@ -195,7 +195,7 @@
         <!--    <dependency>
                 4             <groupId>org.mybatis</groupId>
                 5             <artifactId>mybatis</artifactId>
-                6             <version>3.3.0</version>
+                6             <version>3.5.6</version>
                 7         </dependency>
             8         &lt;!&ndash; mysql驱动包 &ndash;&gt;
             9         <dependency>
@@ -213,7 +213,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.3.0</version>
+            <version>3.5.6</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
